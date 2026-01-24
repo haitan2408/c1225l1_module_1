@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let month = +prompt("Nhập tháng muốn kiểm tra:")
+    // if(month === 1 || month === 3 || month === 5) {
+    //     //literal string (template literal)
+    //     alert(`Tháng ${month} có 31 ngày`)
+    // } else if(month === 4 || month === 6) {
+    //
+    // }
+
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            alert(`Tháng ${month} có 31 ngày`)
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            alert(`Tháng ${month} có 30 ngày`)
+            break;
+        case 2:
+            let year = +prompt("Nhập năm để kiểm tra năm nhuận: ")
+            let isALeapYear = year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
+            if (isALeapYear) {
+                alert(`Tháng ${month} có 29 ngày`)
+            } else {
+                alert(`Tháng ${month} có 38 ngày`)
+            }
+            break;
+        default:
+            alert("Nhập sai. yêu cầu nhập tháng từ 1 đến 12")
+
+    }
+
+</script>
+</body>
+</html>

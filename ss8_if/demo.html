@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let avg = +prompt("Nhập điểm trung bình");
+
+    if(avg >=0 && avg <=10 && !isNaN(avg)) {
+        if (avg >= 8) {
+            alert("Học sinh giỏi")
+        } else if (avg >=6.5) {
+            alert("Học sinh tiên tiến")
+        } else if (avg >=5) {
+            alert("Học sinh trung bình")
+        } else if (avg >=3.5) {
+            alert("Học sinh yếu")
+        } else {
+            alert("Học sinh kém")
+        }
+    } else {
+        alert("Vui lòng nhập điểm là số và nằm trong khoảng từ 0 đến 10")
+    }
+</script>
+
+</body>
+</html>
