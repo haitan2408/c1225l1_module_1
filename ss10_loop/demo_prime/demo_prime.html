@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--    Nếu 1 biến chỉ có 2 giá trị thì nên sử dụng kiểu dữ liệu boolean-->
+    let n = 2
+    let count = 0;
+    while (count < 30) {
+        let isPrime = true;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            alert(`${n} là số nguyên tố`)
+            count++
+        }
+        n++;
+    }
+</script>
+</body>
+</html>
