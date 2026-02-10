@@ -25,5 +25,32 @@
         n++;
     }
 </script>
+
+<script>
+    let n, count = 0, N = 2;
+
+    do {
+        n = +prompt("Nhập số nguyên dương n:");
+    } while (isNaN(n) || n<=0 || !Number.isInteger(n));
+
+    while (count < n) {
+        let isPrime = true;
+
+        for (let i = 2; i < N; i++) {
+            if (N % i === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            document.write(N + " ");
+            count++;
+        }
+        N++;
+    }
+
+
+</script>
 </body>
 </html>

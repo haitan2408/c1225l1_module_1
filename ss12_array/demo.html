@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = ["Hai", "Trung", "Chanh", "Cong"]
+    // for (let i = arr.length-1; i >=0; i--) {
+    //     alert(arr[i])
+    // }
+    //
+    // for (let i in arr) {
+    //     alert(arr[i])
+    // }
+    //
+    // for (let temp of arr) {
+    //     alert(temp)
+    // }
+
+    // Thêm vào cuối
+    // arr.push("Thuận", "Tân", "Long")
+//     Thêm vào đầu
+//     arr.unshift("", "")
+//     Xóa cuối
+//     arr.pop()
+//     Xóa đầu
+//     arr.shift();
+//     Thêm và xóa ở vị trí bất kỳ
+//     arr.splice(2, 2)
+//     Sắp xếp (Lưu ý: sắp xếp theo bảng mã ASCII dù nó là số hay chữ)
+
+    arr.sort()
+    let arrNum = [4,1,15,22,8,9,51]
+    // Sắp xếp số.
+    arrNum.sort(function (a,b) {
+        return b - a;
+    });
+    document.writeln(arrNum)
+
+    let arr2 = [
+        [1,2,3],
+        [2,3,4],
+        [6,7,8]
+    ]
+
+    for (let i =0; i <arr2.length; i++) {
+        for(let j =0; j<arr2[i].length; j++) {
+            alert(arr2[i][j])
+        }
+    }
+</script>
+</body>
+</html>
