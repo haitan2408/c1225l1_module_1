@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    <!--    Nguyên tắc đặt tên class là PascalCase-->
+    class Student extends Person {
+        className;
+
+        constructor(id, name, dob, phone, email, address, className) {
+            super(id, name, dob, phone, email, address);
+            this.className = className;
+        }
+
+        study() {
+            alert(this.name + " đi học");
+        }
+    }
+
+    let tan = new Student(1, "Nguyễn Nhật Tân", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội")
+    tan.address = "Đà Nẵng";
+    tan.id = 1;
+    tan.study();
+    let phong = new Student(2, "Đinh Thế Phong", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội")
+
+
+    class Teacher extends Person {
+        exp;
+        degree;
+
+        constructor(id, name, dob, phone, email, address, exp, degree) {
+            super(id, name, dob, phone, email, address);
+            this.exp = exp;
+            this.degree = degree;
+        }
+
+        teach() {
+            alert(this.name + " dạy học");
+        }
+    }
+
+    class Person {
+        id;
+        name;
+        dob;
+        phone;
+        email;
+        address;
+
+        constructor(id, name, dob, phone, email, address) {
+            this.id = id;
+            this.name = name;
+            this.dob = dob;
+            this.phone = phone;
+            this.email = email;
+            this.address = address;
+        }
+    }
+</script>
+</body>
+</html>
