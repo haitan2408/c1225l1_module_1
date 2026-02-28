@@ -5,43 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+<button id="btn-create">Thêm mới học sinh</button>
+<div id="result"></div>
 <script>
-    <!--    Nguyên tắc đặt tên class là PascalCase-->
-    class Student extends Person {
-        className;
-
-        constructor(id, name, dob, phone, email, address, className) {
-            super(id, name, dob, phone, email, address);
-            this.className = className;
-        }
-
-        study() {
-            alert(this.name + " đi học");
-        }
-    }
-
-    let tan = new Student(1, "Nguyễn Nhật Tân", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội")
-    tan.address = "Đà Nẵng";
-    tan.id = 1;
-    tan.study();
-    let phong = new Student(2, "Đinh Thế Phong", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội")
-
-
-    class Teacher extends Person {
-        exp;
-        degree;
-
-        constructor(id, name, dob, phone, email, address, exp, degree) {
-            super(id, name, dob, phone, email, address);
-            this.exp = exp;
-            this.degree = degree;
-        }
-
-        teach() {
-            alert(this.name + " dạy học");
-        }
-    }
-
     class Person {
         id;
         name;
@@ -59,6 +25,98 @@
             this.address = address;
         }
     }
+
+    <!--    Nguyên tắc đặt tên class là PascalCase-->
+    class Student extends Person {
+        className;
+
+        constructor(id, name, dob, phone, email, address, className) {
+            super(id, name, dob, phone, email, address);
+            this.className = className;
+        }
+
+        study() {
+            alert(this.name + " đi học");
+        }
+    }
+
+
+    class Teacher extends Person {
+        exp;
+        degree;
+
+        constructor(id, name, dob, phone, email, address, exp, degree) {
+            super(id, name, dob, phone, email, address);
+            this.exp = exp;
+            this.degree = degree;
+        }
+
+        teach() {
+            alert(this.name + " dạy học");
+        }
+    }
+
+
+    let tan = new Student(1, "Nguyễn Nhật Tân", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội", "C1225L1")
+    let phong = new Student(2, "Đinh Thế Phong", "2000-01-01", "0123456789", "abc@gmail.com", "Hà Nội", "C1225L1")
+
+    let students = [tan, phong];
+
+    function displayStudent() {
+        let board = "<table border='1px' width='1000px'>"
+        board += "<tr>" +
+            "<th>ID</th>" +
+            "<th>Name</th>" +
+            "<th>DOB</th>" +
+            "<th>Phone</th>" +
+            "<th>Email</th>" +
+            "<th>Address</th>" +
+            "<th>Class</th>" +
+            "<th>Delete</th>" +
+            "</tr>"
+        for (let i = 0; i < students.length; i++) {
+            board += `<tr><td>${students[i].id}</td>
+<td>${students[i].name}</td>
+<td>${students[i].dob}</td>
+<td>${students[i].phone}</td>
+<td>${students[i].email}</td>
+<td>${students[i].address}</td>
+<td>${students[i].className}</td>
+<td><button onclick="removeStudent(${students[i].id})">Delete</button></td>
+</tr>`
+        }
+        board += "</table>"
+        document.getElementById("result").innerHTML = board
+    }
+
+    displayStudent();
+
+    document.getElementById("btn-create").addEventListener("click", function () {
+        let id = +prompt("Nhập id: ")
+        let name = prompt("Nhập tên:")
+        let dob = prompt("Nhập ngày tháng năm sinh")
+        let phone = prompt("Nhập số điện thoại")
+        let email = prompt("Nhập địa chỉ email")
+        let address = prompt("Nhập địa chỉ")
+        let className = prompt("Nhập lớp")
+        students.push(new Student(id, name, dob, phone, email, address, className))
+        displayStudent()
+    })
+
+    function removeStudent(id) {
+        for (let i = 0; i < students.length; i++) {
+            if (students[i].id === id) {
+                let isConfirm = confirm(`Bạn có xác nhận muốn xóa học viên ${students[i].name} không?`)
+                if (isConfirm) {
+                    students.splice(i, 1);
+                    displayStudent()
+                }
+                return;
+            }
+
+        }
+    }
+
 </script>
 </body>
 </html>
